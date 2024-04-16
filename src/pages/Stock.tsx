@@ -23,7 +23,7 @@ function Stock() {
     description: "",
   }));
 
-  const { data, isLoading } = useQuery(
+  const { data } = useQuery(
     ["elements", [page, pageSize, itemName, token]],
     () => GetData(page, pageSize, itemName)
   );
@@ -95,7 +95,7 @@ function Stock() {
       {HeaderMemoized}
 
       {/* таблица */}
-      {isLoading ? (
+      {!data ? (
         <Box sx={{ width: "100%" }}>
           {Array.from({ length: 10 }, () => 0).map((_, index) => (
             <Skeleton key={index} sx={{ height: "50px" }} />
