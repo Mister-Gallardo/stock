@@ -36,7 +36,7 @@ function Stock() {
   }
 
   async function GetData(page: number, pageSize: number, itemName: string) {
-    if (token) return await FetchData(page, pageSize, itemName);
+    return await FetchData(page, pageSize, itemName);
   }
 
   const HeaderMemoized = useMemo(
